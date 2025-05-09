@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack - Waste Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Add Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-recycle"></i>
+            <span>EcoTrack</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tracker">Waste Tracker</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#centers">Collection Centers</a></li>
+            <li><a href="#education">Education</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button class="btn login-btn">Login</button>
+            <button class="btn signup-btn">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Smart Waste Management for a Cleaner Tomorrow</h1>
+                <p>Track, manage, and reduce your waste with our comprehensive system</p>
+                <button class="btn cta-btn">Get Started</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/500x300?text=Waste+Management" alt="Waste Management">
+            </div>
+        </section>
+
+        <!-- Waste Tracker Section -->
+        <section id="tracker" class="section">
+            <h2>Waste Tracker</h2>
+            <div class="tracker-container">
+                <div class="tracker-form">
+                    <h3>Log Your Waste</h3>
+                    <form id="waste-form">
+                        <div class="form-group">
+                            <label for="waste-type">Waste Type:</label>
+                            <select id="waste-type" required>
+                                <option value="">Select waste type</option>
+                                <option value="plastic">Plastic</option>
+                                <option value="paper">Paper</option>
+                                <option value="glass">Glass</option>
+                                <option value="metal">Metal</option>
+                                <option value="organic">Organic</option>
+                                <option value="electronic">Electronic</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="waste-amount">Amount (kg):</label>
+                            <input type="number" id="waste-amount" min="0.1" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="waste-date">Date:</label>
+                            <input type="date" id="waste-date" required>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Add Entry</button>
+                    </form>
+                </div>
+                <div class="tracker-stats">
+                    <h3>Your Waste Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Total Waste</h4>
+                            <p id="total-waste">0 kg</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Recycled</h4>
+                            <p id="recycled-waste">0 kg</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Landfill</h4>
+                            <p id="landfill-waste">0 kg</p>
+                        </div>
+                    </div>
+                    <div class="waste-history">
+                        <h4>Recent Entries</h4>
+                        <ul id="waste-entries">
+                            <!-- Entries will be added here by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carbon Calculator Section -->
+        <section id="calculator" class="section">
+            <h2>Carbon Footprint Calculator</h2>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <form id="carbon-form">
+                        <div class="form-group">
+                            <label for="plastic-amount">Plastic Waste (kg/month):</label>
+                            <input type="number" id="plastic-amount" min="0" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="paper-amount">Paper Waste (kg/month):</label>
+                            <input type="number" id="paper-amount" min="0" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="glass-amount">Glass Waste (kg/month):</label>
+                            <input type="number" id="glass-amount" min="0" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="metal-amount">Metal Waste (kg/month):</label>
+                            <input type="number" id="metal-amount" min="0" value="0">
+                        </div>
+                        <button type="button" class="btn calculate-btn" onclick="calculateFootprint()">Calculate</button>
+                    </form>
+                </div>
+                <div class="calculator-result">
+                    <h3>Your Carbon Footprint</h3>
+                    <div class="result-card">
+                        <p id="carbon-result">Enter your waste data to calculate your carbon footprint</p>
+                        <div id="carbon-meter" class="meter">
+                            <div id="carbon-level" class="level"></div>
+                        </div>
+                        <p id="carbon-message"></p>
+                    </div>
+                    <div class="tips">
+                        <h4>Reduction Tips</h4>
+                        <ul id="carbon-tips">
+                            <!-- Tips will be added here by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collection Centers Section -->
+        <section id="centers" class="section">
+            <h2>Find Collection Centers</h2>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="location-input" placeholder="Enter your location">
+                    <button class="btn search-btn" onclick="findCenters()">Search</button>
+                </div>
+                <div class="filter-options">
+                    <label>Filter by waste type:</label>
+                    <select id="waste-filter">
+                        <option value="all">All Types</option>
+                        <option value="plastic">Plastic</option>
+                        <option value="paper">Paper</option>
+                        <option value="glass">Glass</option>
+                        <option value="metal">Metal</option>
+                        <option value="electronic">Electronic</option>
+                        <option value="hazardous">Hazardous</option>
+                    </select>
+                </div>
+            </div>
+            <div class="centers-map">
+                <div id="map-placeholder">
+                    <p>Map will appear here when you search for a location</p>
+                </div>
+                <div class="centers-list" id="centers-list">
+                    <!-- Centers will be added here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <h2>Waste Management Education</h2>
+            <div class="education-container">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="openTab('recycling')">Recycling</button>
+                    <button class="tab-btn" onclick="openTab('composting')">Composting</button>
+                    <button class="tab-btn" onclick="openTab('reduction')">Reduction</button>
+                    <button class="tab-btn" onclick="openTab('hazardous')">Hazardous Waste</button>
+                </div>
+                <div class="tab-content" id="recycling">
+                    <h3>Recycling Guidelines</h3>
+                    <p>Learn how to properly recycle different materials to maximize efficiency and minimize contamination.</p>
+                    <ul>
+                        <li><strong>Plastics:</strong> Check the resin code (1-7) and follow local guidelines</li>
+                        <li><strong>Paper:</strong> Remove any non-paper components like plastic windows</li>
+                        <li><strong>Glass:</strong> Separate by color and remove lids</li>
+                        <li><strong>Metals:</strong> Rinse containers and flatten if possible</li>
+                    </ul>
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/example" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="tab-content" id="composting" style="display:none;">
+                    <h3>Composting at Home</h3>
+                    <p>Turn your organic waste into nutrient-rich compost for your garden.</p>
+                    <ul>
+                        <li><strong>Greens:</strong> Vegetable scraps, fruit peels, coffee grounds</li>
+                        <li><strong>Browns:</strong> Dry leaves, twigs, paper, cardboard</li>
+                        <li><strong>Avoid:</strong> Meat, dairy, oily foods, pet waste</li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="reduction" style="display:none;">
+                    <h3>Waste Reduction Tips</h3>
+                    <p>Reduce your waste generation with these simple strategies.</p>
+                    <ul>
+                        <li>Use reusable bags, bottles, and containers</li>
+                        <li>Buy in bulk to reduce packaging</li>
+                        <li>Choose products with minimal packaging</li>
+                        <li>Repair items instead of replacing them</li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="hazardous" style="display:none;">
+                    <h3>Hazardous Waste Disposal</h3>
+                    <p>Proper handling of hazardous materials is crucial for safety and environmental protection.</p>
+                    <ul>
+                        <li>Never pour chemicals down drains or toilets</li>
+                        <li>Store in original containers with labels</li>
+                        <li>Take to designated collection facilities</li>
+                        <li>Includes: batteries, paints, cleaners, pesticides, electronics</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About EcoTrack</h4>
+                <p>Our mission is to make waste management easier and more effective for individuals and communities.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tracker">Waste Tracker</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#centers">Collection Centers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: info@ecotrack.com</p>
+                <p>Phone: (123) 456-7890</p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 EcoTrack Waste Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

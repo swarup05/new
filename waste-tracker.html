@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack - Waste Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-recycle"></i>
+            <span>EcoTrack</span>
+        </div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="waste-tracker.html" class="nav-link active">Waste Tracker</a>
+            <a href="calculator.html" class="nav-link">Calculator</a>
+            <a href="collection-centers.html" class="nav-link">Collection Centers</a>
+            <a href="education.html" class="nav-link">Education</a>
+        </div>
+        <button class="menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <main>
+        <section class="waste-tracker">
+            <h1>Waste Tracker</h1>
+            <div class="tracker-container">
+                <div class="tracker-form">
+                    <h2>Log Your Waste</h2>
+                    <form id="waste-form">
+                        <div class="form-group">
+                            <label for="waste-type">Waste Type</label>
+                            <select id="waste-type" required>
+                                <option value="">Select type</option>
+                                <option value="plastic">Plastic</option>
+                                <option value="paper">Paper</option>
+                                <option value="glass">Glass</option>
+                                <option value="metal">Metal</option>
+                                <option value="organic">Organic</option>
+                                <option value="electronic">Electronic</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="waste-amount">Amount (kg)</label>
+                            <input type="number" id="waste-amount" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="waste-date">Date</label>
+                            <input type="date" id="waste-date" required>
+                        </div>
+                        <button type="submit" class="btn">Log Waste</button>
+                    </form>
+                </div>
+
+                <div class="tracker-stats">
+                    <h2>Monthly Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-trash"></i>
+                            <h3>Total Waste</h3>
+                            <p id="total-waste">0 kg</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-recycle"></i>
+                            <h3>Recycled</h3>
+                            <p id="recycled-waste">0 kg</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-landmark"></i>
+                            <h3>Landfill</h3>
+                            <p id="landfill-waste">0 kg</p>
+                        </div>
+                    </div>
+
+                    <div class="monthly-goal">
+                        <h3>Monthly Goal Progress</h3>
+                        <div class="progress-bar">
+                            <div id="goal-progress-bar" class="progress"></div>
+                        </div>
+                        <p id="goal-status">Set your monthly goal to track progress</p>
+                        <div class="goal-input">
+                            <input type="number" id="monthly-goal-input" placeholder="Enter goal in kg">
+                            <button onclick="setMonthlyGoal()" class="btn">Set Goal</button>
+                        </div>
+                    </div>
+
+                    <div class="recent-entries">
+                        <h3>Recent Entries</h3>
+                        <ul id="waste-entries"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About EcoTrack</h3>
+                <p>Making waste management smarter and more sustainable for a better tomorrow.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="waste-tracker.html">Waste Tracker</a></li>
+                    <li><a href="calculator.html">Calculator</a></li>
+                    <li><a href="collection-centers.html">Collection Centers</a></li>
+                    <li><a href="education.html">Education</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@ecotrack.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoTrack. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+    <script src="waste-tracker.js"></script>
+</body>
+</html> 

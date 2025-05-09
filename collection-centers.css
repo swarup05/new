@@ -1,0 +1,303 @@
+/* Collection Centers Specific Styles */
+.collection-centers {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-container {
+    background-color: var(--light-gray);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.input-group {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.input-group i {
+    position: absolute;
+    left: 1rem;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%234CAF50' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.input-group input:invalid:not(:placeholder-shown),
+.input-group select:invalid:not(:placeholder-shown) {
+    border-color: var(--danger-color);
+}
+
+.search-box button {
+    padding: 0.75rem 1.5rem;
+    white-space: nowrap;
+    min-width: 100px;
+    position: relative;
+}
+
+.search-box button .loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-box button.loading .button-text {
+    visibility: hidden;
+}
+
+.search-box button.loading .loading-spinner {
+    display: inline-block;
+}
+
+.error-message {
+    color: var(--danger-color);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: rgba(244, 67, 54, 0.1);
+}
+
+.centers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.centers-list {
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-height: 600px;
+    overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.initial-message,
+.graph-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 200px;
+    color: #666;
+    text-align: center;
+    padding: 2rem;
+}
+
+.initial-message i,
+.graph-placeholder i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.center-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.center-card:hover {
+    transform: translateY(-2px);
+}
+
+.center-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.center-card p {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.center-card p i {
+    color: var(--primary-color);
+    width: 20px;
+}
+
+.center-card strong {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.no-results {
+    text-align: center;
+    color: var(--text-color);
+    font-style: italic;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.graph-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+.graph-container canvas {
+    width: 100% !important;
+    height: 400px !important;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.city-stats {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.stat-card {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card i {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.stat-card h4 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.stat-card p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin: 0;
+}
+
+/* Scrollbar Styling */
+.graph-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.graph-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.graph-container::-webkit-scrollbar-thumb {
+    background: #4CAF50;
+    border-radius: 4px;
+}
+
+.graph-container::-webkit-scrollbar-thumb:hover {
+    background: #45a049;
+}
+
+/* Responsive Design for Collection Centers */
+@media (max-width: 768px) {
+    .centers-container {
+        grid-template-columns: 1fr;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+    .graph-container {
+        max-height: 600px;
+    }
+    
+    .graph-container canvas {
+        height: 300px !important;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .graph-container {
+        max-height: 500px;
+    }
+    
+    .graph-container canvas {
+        height: 250px !important;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+} 

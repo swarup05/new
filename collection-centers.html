@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack - Collection Centers</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="collection-centers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-recycle"></i>
+            <span>EcoTrack</span>
+        </div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="waste-tracker.html" class="nav-link">Waste Tracker</a>
+            <a href="calculator.html" class="nav-link">Calculator</a>
+            <a href="collection-centers.html" class="nav-link active">Collection Centers</a>
+            <a href="education.html" class="nav-link">Education</a>
+        </div>
+        <button class="menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <main>
+        <section class="collection-centers">
+            <h1>Find Collection Centers</h1>
+            <div class="search-container">
+                <form id="search-form" novalidate>
+                    <div class="search-box">
+                        <div class="input-group">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="location" placeholder="Enter your location" required
+                                   pattern="[A-Za-z0-9\s,.-]+" minlength="3" maxlength="100"
+                                   title="Please enter a valid location (3-100 characters)">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-trash"></i>
+                            <select id="waste-type-filter" required>
+                                <option value="">Select Waste Type</option>
+                                <option value="all">All Types</option>
+                                <option value="plastic">Plastic</option>
+                                <option value="paper">Paper</option>
+                                <option value="glass">Glass</option>
+                                <option value="metal">Metal</option>
+                                <option value="organic">Organic</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">
+                            <span class="button-text">Search</span>
+                            <span class="loading-spinner" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="error-message" id="search-error" style="display: none;"></div>
+                </form>
+            </div>
+
+            <div class="centers-container">
+                <div class="centers-list" id="centers-list">
+                    <div class="initial-message">
+                        <i class="fas fa-search"></i>
+                        <p>Enter your location and waste type to find collection centers near you.</p>
+                    </div>
+                </div>
+                <div class="graph-container" id="graph-container">
+                    <div class="graph-placeholder">
+                        <i class="fas fa-chart-bar"></i>
+                        <p>Search results will be displayed here</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About EcoTrack</h3>
+                <p>Making waste management smarter and more sustainable for a better tomorrow.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="waste-tracker.html">Waste Tracker</a></li>
+                    <li><a href="calculator.html">Calculator</a></li>
+                    <li><a href="collection-centers.html">Collection Centers</a></li>
+                    <li><a href="education.html">Education</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@ecotrack.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoTrack. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+    <script src="collection-centers.js"></script>
+</body>
+</html> 

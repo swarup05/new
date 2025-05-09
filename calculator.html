@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack - Carbon Calculator</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="calculator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-recycle"></i>
+            <span>EcoTrack</span>
+        </div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="waste-tracker.html" class="nav-link">Waste Tracker</a>
+            <a href="calculator.html" class="nav-link active">Calculator</a>
+            <a href="collection-centers.html" class="nav-link">Collection Centers</a>
+            <a href="education.html" class="nav-link">Education</a>
+        </div>
+        <button class="menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <main>
+        <section class="calculator">
+            <h1>Carbon Footprint Calculator</h1>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <h2>Calculate Your Impact</h2>
+                    <form id="calculator-form">
+                        <div class="form-group">
+                            <label for="plastic-amount">Plastic Waste (kg/month)</label>
+                            <input type="number" id="plastic-amount" step="0.1" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="paper-amount">Paper Waste (kg/month)</label>
+                            <input type="number" id="paper-amount" step="0.1" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="glass-amount">Glass Waste (kg/month)</label>
+                            <input type="number" id="glass-amount" step="0.1" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="metal-amount">Metal Waste (kg/month)</label>
+                            <input type="number" id="metal-amount" step="0.1" min="0">
+                        </div>
+                        <button type="submit" class="btn">Calculate Impact</button>
+                    </form>
+                </div>
+
+                <div class="calculator-results">
+                    <h2>Your Carbon Footprint</h2>
+                    <div class="result-card">
+                        <div class="carbon-meter">
+                            <div id="carbon-level" class="level"></div>
+                        </div>
+                        <p id="carbon-result">Enter your waste data to calculate</p>
+                        <p id="carbon-message">Your impact will be shown here</p>
+                    </div>
+
+                    <div class="reduction-tips">
+                        <h3>Reduction Tips</h3>
+                        <ul id="carbon-tips">
+                            <li>Enter your waste data to get personalized tips</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About EcoTrack</h3>
+                <p>Making waste management smarter and more sustainable for a better tomorrow.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="waste-tracker.html">Waste Tracker</a></li>
+                    <li><a href="calculator.html">Calculator</a></li>
+                    <li><a href="collection-centers.html">Collection Centers</a></li>
+                    <li><a href="education.html">Education</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@ecotrack.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoTrack. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+    <script src="calculator.js"></script>
+</body>
+</html> 
